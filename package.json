@@ -1,0 +1,22 @@
+{
+  "name": "dinoserrors",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "mdx-deck deck.mdx",
+    "build": "mdx-deck build deck.mdx"
+  },
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/core": "^7.7.4",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.7.4",
+    "@theme-ui/components": "^0.2.49",
+    "@theme-ui/presets": "^0.2.44",
+    "@theme-ui/prism": "^0.2.46",
+    "animate.css": "^3.7.2",
+    "mdx-deck": "^3.0.13",
+    "raw-loader": "^4.0.0",
+    "react-live": "^2.2.2"
+  },
+  "devDependencies": {}
+}

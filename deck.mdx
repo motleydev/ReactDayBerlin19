@@ -1,0 +1,944 @@
+import { Notes, Horizontal } from 'mdx-deck';
+import myTheme from './theme'
+
+export const themes = [myTheme]
+
+<DarkBox>
+<Column>
+
+# Handling Errors in React
+
+</Column>
+
+</DarkBox>
+
+---
+
+import head from './static/head.png'
+
+<DarkBox>
+<Column width="1/3" alignItems="center" justifyContent="center">
+
+# About Me
+<img src={head} className="animated pulse infinite slower" style={{position: 'absolute', left:5, bottom: 15, width: 250}}/>
+
+</Column>
+<Column width="2/3" textAlign="left">
+
+* Developer Advocate @ GraphCMS
+* Husband & Father
+* I write more errors than anyone I know
+
+</Column>
+</DarkBox>
+
+---
+
+<DarkBox>
+<Column>
+
+# Error Handling = <HiBlue>Better Experience</HiBlue>
+
+<Notes>
+Error handling is a core tennant of building robust software. We used it at GraphCMS to drastically improve the effectiveness of our cutomer success team.
+</Notes>
+
+</Column>
+</DarkBox>
+
+---
+
+import errorFull from './static/error-full.png'
+
+<DarkBox>
+<Column>
+    <img src={errorFull} style={{width: '80%'}} />
+</Column>
+</DarkBox>
+
+---
+
+import errorHandled from './static/error-handled.png'
+
+<DarkBox>
+<Column>
+    <img src={errorHandled} style={{width: '80%'}} />
+</Column>
+</DarkBox>
+
+---
+
+<DarkBox>
+<Column>
+
+# Errors are big $$
+
+<Notes>if you're lucky and they don't cost human life</Notes>
+
+</Column>
+</DarkBox>
+
+---
+
+<DarkBox>
+<Column>
+
+# Missing Superscript
+---
+
+</Column>
+<Enter enterClass="fadeInUp">
+<Column width="full">
+
+## Mariner 1 Exploded
+
+</Column>
+<Column width="full">
+
+### ~$200 Million Loss
+
+</Column>
+</Enter>
+</DarkBox>
+
+---
+
+<DarkBox>
+
+<Column>
+
+# If / Else Error
+---
+
+</Column>
+<Enter enterClass="fadeInUp">
+<Column>
+
+## Morris attempts to Meassure the Size of the Internet
+
+</Column>
+<Column>
+
+### ~$100 Million Cleanup
+
+</Column>
+</Enter>
+</DarkBox>
+
+---
+
+<DarkBox>
+<Column>
+
+# Copied Test Code to Production
+---
+
+</Column>
+
+<Enter enterClass="fadeInUp">
+<Column>
+
+## Knight Capital Stock Software Bought HIGH and sold LOW
+
+</Column>
+<Column>
+
+### ~$400 Million Loss in 30 Minutes
+
+</Column>
+</Enter>
+</DarkBox>
+
+---
+
+<DarkBox>
+<Column width="full">
+
+# False Positive in Diffing Algorithm
+---
+
+</Column>
+<Enter enterClass="fadeInUp">
+<Column width="full">
+
+## Near Nuclear War Between the US and Russia
+
+</Column>
+<Column width="full">
+
+### Priceless
+
+</Column>
+</Enter>
+</DarkBox>
+
+---
+
+<DarkBox>
+
+<Column width="1/2" textAlign="left">
+
+# Error Handling<br/>in React
+
+</Column>
+<Column textAlign="left">
+
+* What is an Error
+* What is an Error in React
+* What is Error Handling
+
+</Column>
+
+<Notes>First, let's break this down.</Notes>
+
+</DarkBox>
+
+---
+
+<DarkBox>
+<Column>
+
+# `Err0rs`
+
+</Column>
+</DarkBox>
+
+---
+
+<DarkBox>
+<Column>
+
+# Errors are on a Scale
+`Correct Value - Actual Result = Error`
+
+<Notes>Error means _Wandering_.</Notes>
+
+</Column>
+</DarkBox>
+
+---
+
+<DarkBox>
+<Column>
+
+> Errors are Deviance from the Desired Goal
+
+</Column>
+</DarkBox>
+
+---
+
+<DarkBox>
+<Column width="1/2" textAlign="left">
+
+# <HiBlue>3</HiBlue> Categories <br/>of Errors
+
+</Column>
+
+<Column width="1/2" textAlign="left">
+
+* Known Errors
+* Known Unknown Errors
+* Unknown Unknown Errors
+
+</Column>
+</DarkBox>
+
+---
+
+<DarkBox>
+<Column style={{fontSize: "8vh"}}>
+
+* What is an error in React?
+* What is an error in JSX?
+* <HiBlue>What is an error in JavaScript?</HiBlue>
+
+</Column>
+</DarkBox>
+
+---
+
+<DarkBox>
+<Column>
+
+# Known Errors in JavaScript
+7 Error Objects
+2 Experimental or Non-Standard Error Objects
+
+<Notes>Known errors in Javascript are the ones the system knows about. If you are using typescript, these are ones we should be able to catch before they even go live</Notes>
+
+</Column>
+</DarkBox>
+
+---
+
+<DarkBox>
+<Column>
+<Enter>
+{["Error",
+"EvalError",
+"RangeError",
+"ReferenceError",
+"SyntaxError",
+"TypeError",
+"URIError"].map((el, i) => {
+    return <Card key={i}>{el}</Card>
+})}
+</Enter>
+</Column>
+</DarkBox>
+
+---
+
+<DarkBox>
+
+<Column>
+
+# Every Error
+
+</Column>
+
+<Column style={{fontSize: 32}} className="animated fadeIn">
+
+```js
+class URIEncoder {
+  constructor() {
+    this.encode = input =>
+      encodeURIComponent(
+        stringVal
+          .normalize("KFC"))
+  },
+}
+const result =
+  URIEncoder.encode("Über Sorry")
+```
+
+</Column>
+</DarkBox>
+
+---
+
+<DarkBox>
+<Column>
+
+# Use Type Checking
+
+</Column>
+</DarkBox>
+
+---
+
+<DarkBox>
+<Column>
+
+# Known Unknown Errors
+
+</Column>
+<Column width="full">
+
+* `Undefined` && `Null`
+* Valid State, Unwanted Result
+
+</Column>
+</DarkBox>
+
+---
+
+<DarkBox>
+<Column width="1/2" textAlign="left">
+
+# Checking for Undesired States
+
+</Column>
+<Column width="1/2" textAlign="left">
+
+* `if` Statements
+* `ternary` Conditional Operator
+* `expression` Checking
+
+</Column>
+</DarkBox>
+
+---
+
+<DarkBox>
+<Column className="animated fadeIn">
+
+Both `if` and `ternary` expect an `expression`<br/> and check for `truthy` or `falsy` results.
+
+</Column>
+</DarkBox>
+
+---
+
+<DarkBox>
+<Column className="animated fadeIn">
+
+An `expression` is code that can evaluate to a value, <br/>free from side-effects
+
+<Notes>Assignment is a side-effect. A variable with an assigned value doesn't have a side-effect.</Notes>
+
+</Column>
+</DarkBox>
+
+---
+
+<DarkBox>
+<Column className="animated fadeIn">
+
+## Expressions
+```js
+true // Value
+4 + 5 // Arithmetic
+(true == false) // Comparison (false)
+```
+
+</Column>
+</DarkBox>
+
+---
+
+<DarkBox>
+<Column className="animated fadeIn">
+
+## Truthy/Falsey checking
+
+```js
+Boolean(true) // true
+
+const sorry = {}
+Boolean(sorry) // true
+
+Boolean(0) // false
+```
+
+</Column>
+</DarkBox>
+
+---
+
+<DarkBox>
+<Column width="1/3" textAlign="left">
+
+## Ternary
+
+</Column>
+
+<Column width="2/3" className="animated fadeIn">
+
+```js
+
+let nextAction =
+    Status.isError
+        ? 'say-sorry'
+        : 'high-five'
+
+```
+
+</Column>
+</DarkBox>
+
+---
+
+<DarkBox>
+<Column className="animated fadeIn">
+
+## If Statement
+
+```js
+let nextAction
+
+if (partner.isMad) {
+    nextAction = 'say-sorry'
+} else {
+    nextAction = 'say-sorry-anyways'
+}
+```
+
+</Column>
+</DarkBox>
+
+---
+
+<DarkBox>
+<Column className="animated fadeIn">
+
+## Advanced Expression Comparison
+
+```js
+(false || true) // true
+(false && true) // false
+(0 || 5) // 5
+```
+
+</Column>
+</DarkBox>
+
+---
+
+<DarkBox>
+<Column className="animated fadeIn">
+
+## Coming in 2020  
+
+```js
+(0 || 5) // 5  --> Problematic
+
+(0 ?? 5) // 0
+('' ?? 'Sorry') // ''
+(undefined ?? 'Apology') // undefined
+```
+<Notes>Nullish Coalescing</Notes>
+
+</Column>
+</DarkBox>
+
+---
+
+<DarkBox>
+<Column>
+
+# Unknown Unknown Errors
+
+</Column>
+<Column width="full">
+
+The system is down
+
+<Notes>An error made it to the top of the runtime.</Notes>
+
+</Column>
+</DarkBox>
+
+---
+
+<DarkBox>
+<Column className="animated fadeIn">
+
+With `Type Checking`<br/> and `Conditional Checking`,<br/> what do we do when something <br/> still goes wrong?
+
+</Column>
+</DarkBox>
+
+---
+
+<DarkBox>
+<Column >
+
+## Something to know about Errors...
+
+</Column>
+</DarkBox>
+
+---
+
+<DarkBox>
+<Column className="animated fadeIn">
+
+> Errors are like fish.<br/> When things go wrong, they float to the top.
+
+</Column>
+
+<Notes>
+They will bubble up the scope until they eventually get caught by the runtime. And be caught by a global runtime.
+</Notes>
+</DarkBox>
+
+---
+
+<DarkBox>
+<Column>
+
+Here's a list of all the ways to catch an error in Javascript
+</Column>
+<Column width="full">
+
+<Enter>
+
+# try / catch
+
+</Enter>
+
+</Column>
+</DarkBox>
+
+---
+
+
+<DarkBox>
+<Column width="full">
+
+## Try / Catch
+
+</Column>
+<Column className="animated fadeIn">
+
+```js
+try {
+    measureTheInternet()
+} catch(e) {
+    console.log('Sorry')
+}
+```
+
+</Column>
+</DarkBox>
+
+---
+
+<DarkBox>
+<Column>
+
+* `try / catch`
+* `Promise.catch`
+* `Streams.on('error')`
+
+</Column>
+</DarkBox>
+
+---
+
+<DarkBox>
+<Column>
+
+## 3 Rules for Error Handling
+
+* Use `TypeScript` for the errors you write
+* Use `conditional checks` for the errors you expect
+* Use `Try / Catch` for the ones you don't
+
+</Column>
+</DarkBox>
+
+---
+<DarkBox>
+<Column>
+
+# So, this is a React conf
+
+</Column>
+<Column width="full">
+
+Let's look at some examples.
+
+</Column>
+</DarkBox>
+
+---
+
+<DarkBox>
+<Column>
+
+# React is very error conscious
+
+- `UNSAFE_componentWillMount`
+- `dangerouslySetInnerHTML`
+
+</Column>
+</DarkBox>
+
+---
+
+<DarkBox>
+<Column>
+
+# Type Checking / Linting in React
+
+</Column>
+</DarkBox>
+
+---
+
+import robin from './static/RobinPokorny.jpg'
+import satyajit from './static/SatyajitSahoo.jpg'
+import olena from './static/OlenaSovyn.jpg'
+
+<DarkBox>
+<Column>
+
+# Find These People
+
+</Column>
+
+<Column width="full" style={{justifyContent: 'space-around'}}>
+
+<div>
+<div style={{
+    width: 250,
+    height: 250,
+    borderRadius:250,
+    overflow: "hidden",
+    backgroundImage: `url(${satyajit})`,
+    backgroundPosition: 'center -65px'
+}} />
+<p><HiBlue>Satyajit Sahoo</HiBlue></p>
+</div>
+
+<div>
+<div style={{
+    width: 250,
+    height: 250,
+    borderRadius:250,
+    overflow: "hidden",
+    backgroundImage: `url(${robin})`,
+    backgroundPosition: 'center -15px'
+}} />
+<p><HiBlue>Robin Pokorny</HiBlue></p>
+</div>
+
+<div>
+<div style={{
+    width: 250,
+    height: 250,
+    borderRadius:250,
+    overflow: "hidden",
+    backgroundImage: `url(${olena})`,
+    backgroundPosition: '-200px -40px'
+}} />
+<p><HiBlue>Olena Sovyn</HiBlue></p>
+</div>
+
+
+</Column>
+
+<Notes>
+Other's have talkd about TypeScript, so I'll just show an example.
+</Notes>
+
+</DarkBox>
+
+---
+
+<DarkBox>
+<Column>
+
+# Conditional Checking in React
+
+</Column>
+</DarkBox>
+
+---
+import conditional from '!!raw-loader!./examples/ReactConditional.js'
+
+<DarkBox>
+<Column width="full">
+    <Whoops>
+    <Editor code={conditional} />
+    </Whoops>
+</Column>
+</DarkBox>
+
+---
+
+<DarkBox>
+<Column width="full">
+
+# Ternarys in React
+
+</Column>
+</DarkBox>
+
+---
+import ternary from '!!raw-loader!./examples/ReactTernary.js'
+
+<DarkBox>
+<Column width="full">
+    <Whoops>
+    <Editor code={ternary} />
+    </Whoops>
+</Column>
+
+</DarkBox>
+
+---
+
+<DarkBox>
+<Column>
+
+# Nullish Coalescing in React
+
+</Column>
+</DarkBox>
+
+---
+
+import nullish from '!!raw-loader!./examples/ReactNullish.js'
+
+<DarkBox>
+<Column width="full">
+    <Whoops>
+    <Editor code={nullish} />
+    </Whoops>
+</Column>
+
+</DarkBox>
+
+---
+
+<DarkBox>
+<Column>
+
+# Try / Catch in React?
+
+</Column>
+</DarkBox>
+
+---
+
+<DarkBox>
+<Column>
+
+## React Boundaries
+
+</Column>
+</DarkBox>
+
+---
+
+import errorBoundary from '!!raw-loader!./examples/ReactErrorBoundary.js'
+
+<DarkBox>
+    <Whoops>
+    <Editor noInline={true} code={errorBoundary} />
+    </Whoops>
+</DarkBox>
+
+---
+
+<DarkBox>
+<Column>
+
+## Two key properties
+
+* `static getDerivedStateFromError`
+* `componentDidCatch()`
+
+<Notes>ComponentDidCatch is client only (commit phase) so you don't want to use it for setting state, use it for notifying error services.</Notes>
+
+</Column>
+</DarkBox>
+
+---
+
+<DarkBox>
+<Column width="full">
+
+## The Gotchas:
+
+</Column>
+<Column>
+
+* Don't work in Event Handlers
+* Don't work in Asynchronous code
+* Server side rendering issues
+* Only catches errors in children
+
+</Column>
+</DarkBox>
+
+
+---
+
+<DarkBox>
+<Column>
+
+# But is Catching Enough?
+
+</Column>
+</DarkBox>
+
+---
+
+<DarkBox>
+<Column>
+
+## A Catch is an Opportunity
+
+</Column>
+</DarkBox>
+
+<Notes>we have the user, in context of the problem</Notes>
+
+---
+
+<DarkBox>
+<Column>
+
+# Proactive UIs with React
+
+</Column>
+</DarkBox>
+
+---
+
+<DarkBox>
+    <iframe
+     src="https://codesandbox.io/embed/github/motleydev/beer-catch/tree/master/?fontsize=14&hidenavigation=1&theme=dark"
+     style="width:100%; height:100%; border:0; border-radius: 4px; overflow:hidden;"
+     title="xenodochial-darkness-tk1tv"
+     sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
+   ></iframe>
+</DarkBox>
+
+---
+<DarkBox>
+<Column>
+
+
+# And if All Hope is Lost?
+
+</Column>
+</DarkBox>
+
+---
+
+import dinorungif from './static/dinorun.gif'
+
+<DarkBox background>
+
+<Column>
+
+# Played 9 million times per day
+
+</Column>
+<Column>
+
+The Error is literally "we can't find the internet"
+
+</Column>
+
+<img src={dinorungif}  width="100%"  />
+
+</DarkBox>
+
+---
+
+<DarkBox>
+
+<Column>
+
+# Don't Just Catch Errors
+
+---
+
+</Column>
+<Enter enterClass="fadeInUp">
+<Column>
+
+# Put Them to Work
+
+</Column>
+</Enter>
+</DarkBox>
+
+---
+<DarkBox>
+<Column>
+
+
+## Thanks
+
+</Column>
+</DarkBox>
+
+---
